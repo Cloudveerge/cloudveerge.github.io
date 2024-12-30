@@ -43,19 +43,20 @@ body {
   margin: 0;
   text-align: center;
   font-weight: 600;
+  padding: 0 10px;
 }
 
 h1 {
   margin-bottom: 15px;
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #fff;
 }
 
 img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -86,6 +87,28 @@ img {
   }
 }
 
+.snowflake {
+  position: absolute;
+  top: -10%;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.8;
+  z-index: -1;
+  animation: snowFall 15s linear infinite, rotateSnowflake 5s linear infinite;
+}
+
+.snowflake:nth-child(odd) {
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+.snowflake:nth-child(even) {
+  animation-duration: 20s;
+  animation-delay: 1s;
+}
+
 @keyframes snowFall {
   0% {
     top: -10%;
@@ -93,54 +116,38 @@ img {
   }
   100% {
     top: 100%;
-    transform: translateX(50px);
+    transform: translateX(30px);
   }
 }
 
-/* Снежинки */
-.snowflake {
-  position: absolute;
-  top: -10%;
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  opacity: 0.8;
-  animation: snowFall linear infinite;
-  animation-duration: 5s;
-}
-
-.snowflake:nth-child(odd) {
-  animation-duration: 7s;
-  animation-delay: 2s;
-}
-
-.snowflake:nth-child(even) {
-  animation-duration: 6s;
-  animation-delay: 1s;
+@keyframes rotateSnowflake {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 button {
   background-color: #000000;
   color: white;
-  border: 1px solid #444444;
+  border: 1px solid #343434;
   padding: 10px 20px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   border-radius: 20px;
   cursor: pointer;
   margin: 8px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
   font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
-  background-color: #222222;
-  transform: translateY(-2px);
+  background-color: #0d0d0d;
 }
 
 button:active {
-  background-color: #333333;
-  transform: translateY(1px);
+  background-color: #0d0d0d;
 }
 
 .buttons-container {
@@ -151,7 +158,7 @@ button:active {
 }
 
 .info {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-top: 15px;
   opacity: 0;
