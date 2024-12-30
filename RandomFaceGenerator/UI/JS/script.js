@@ -1,5 +1,5 @@
 function createSnowflakes() {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 20; i++) {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
     snowflake.style.left = `${Math.random() * 100}%`;
