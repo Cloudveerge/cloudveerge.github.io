@@ -35,14 +35,13 @@
 
     <script>
         let isMuted = true;
-        let countdownStarted = false;
         const audioElement = document.createElement('audio');
         audioElement.id = 'audio';
         audioElement.style.display = 'none';
         document.body.appendChild(audioElement);
 
         const hoaAudio = document.getElementById('audio');
-        hoaAudio.src = 'Sarah (Bonus Track) - Alex G.m4a';
+        hoaAudio.src = 'Sarah (Bonus Track) - Alex G.m4a';  
 
         const lyrics = [
             "Сара бежит, чтобы почувствовать жжение в лёгких",
@@ -77,17 +76,9 @@
 
         const countdownElement = document.querySelector('.countdown');
 
-        hoaAudio.addEventListener('canplaythrough', () => {
-            console.log('Audio is fully loaded and ready to play.');
-            if (!countdownStarted) {
-                countdownStarted = true;
-                updateCountdown();
-            }
-        });
-
         function updateCountdown() {
             if (countdown > 0) {
-                countdownElement.innerText = `00:${countdown < 10 ? '0' + countdown : countdown}`;
+                countdownElement.innerText = 00:${countdown < 10 ? '0' + countdown : countdown};
                 countdown--;
                 setTimeout(updateCountdown, 1000);
             } else {
@@ -99,7 +90,7 @@
         function displayLyrics() {
             if (lineIndex < lyrics.length) {
                 const lyricsContainer = document.querySelector('.song-lyrics');
-                lyricsContainer.innerHTML += `<p>${lyrics[lineIndex]}</p>`;
+                lyricsContainer.innerHTML += <p>${lyrics[lineIndex]}</p>;
                 lineIndex++;
                 setTimeout(displayLyrics, 5000);
             }
@@ -107,10 +98,11 @@
 
         function toggleSound() {
             if (isMuted) {
-                hoaAudio.load();
+                hoaAudio.play();
                 isMuted = false;
                 document.querySelector('.sound-button i').classList.remove('fa-volume-mute');
                 document.querySelector('.sound-button i').classList.add('fa-volume-up');
+                updateCountdown();
             } else {
                 hoaAudio.pause();
                 isMuted = true;
@@ -120,4 +112,4 @@
         }
     </script>
 </body>
-</html>
+</html>  
