@@ -1,0 +1,122 @@
+[
+  {
+      "title": "Hidden Wiki",
+      "description": "A comprehensive directory that compiles .onion links from various categories, providing an easy way to explore hidden services on the Tor network. This wiki is widely used to find resources related to privacy, security, and the darknet.",
+      "url": "http://hiddenwikilink.onion",
+      "keywords": ["wiki", "directory", "hidden", "onion"]
+  },
+  {
+      "title": "Deep Wiki",
+      "description": "A complete guide to the dark web, offering curated resources and in-depth articles on various topics, from cybersecurity to accessing encrypted content. Perfect for those looking to dive deeper into the uncharted parts of the internet.",
+      "url": "http://deepwikilink.onion",
+      "keywords": ["wiki", "darkweb", "guide", "onion"]
+  },
+  {
+      "title": "Tech Wiki",
+      "description": "An essential resource for tech enthusiasts, providing technical documentation, software guides, and resources on the latest advancements in technology. Explore everything from coding languages to system security and beyond.",
+      "url": "http://techwikilink.onion",
+      "keywords": ["wiki", "tech", "documentation", "onion"]
+  },
+  {
+      "title": "WikiLeaks",
+      "description": "A global platform for whistleblowers and journalists to expose sensitive information and secret government activities. WikiLeaks offers articles and leaks concerning global politics, corporate affairs, and more.",
+      "url": "http://wikileakslink.onion",
+      "keywords": ["wiki", "leaks", "secrets", "onion"]
+  },
+  {
+      "title": "Science Wiki",
+      "description": "A repository of scientific articles, journals, and research papers. This wiki is an invaluable tool for students, researchers, and science lovers who want to stay updated with the latest discoveries and findings in various scientific fields.",
+      "url": "http://sciencewikilink.onion",
+      "keywords": ["wiki", "science", "research", "onion"]
+  },
+  {
+      "title": "Dark Wiki",
+      "description": "A curated collection of links and resources focused on the darknet. From anonymous browsing to deep web services, Dark Wiki provides a gateway to understand the more obscure aspects of the internet.",
+      "url": "http://darkwikilink.onion",
+      "keywords": ["wiki", "darknet", "resources", "onion"]
+  },
+  {
+      "title": "Crypto Wiki",
+      "description": "An extensive guide to cryptocurrency and blockchain technology. Learn about Bitcoin, Ethereum, smart contracts, and the latest trends in the decentralized financial world.",
+      "url": "http://cryptowikilink.onion",
+      "keywords": ["wiki", "crypto", "blockchain", "onion"]
+  },
+  {
+      "title": "History Wiki",
+      "description": "A comprehensive archive of historical documents, articles, and resources. Whether you're a history buff or a student, this wiki will provide you with rich resources on historical events, figures, and more.",
+      "url": "http://historywikilink.onion",
+      "keywords": ["wiki", "history", "archives", "onion"]
+  },
+  {
+      "title": "Literature Wiki",
+      "description": "A collection of literary works, including famous novels, poetry, and drama. The wiki also includes reviews and discussions on notable books, making it a great resource for literature enthusiasts.",
+      "url": "http://literaturewikilink.onion",
+      "keywords": ["wiki", "literature", "reviews", "onion"]
+  },
+  {
+      "title": "Security Wiki",
+      "description": "A hub for cybersecurity experts and beginners alike. This wiki provides tips, tools, and tutorials on securing your online presence, ethical hacking, malware prevention, and more.",
+      "url": "http://securitywikilink.onion",
+      "keywords": ["wiki", "security", "cyber", "onion"]
+  },
+  {
+      "title": "Art Wiki",
+      "description": "An artistic showcase of various art pieces, including visual arts, sculptures, and photography. Art lovers can explore galleries and exhibitions from across the globe, gaining a deeper understanding of artistic movements and styles.",
+      "url": "http://artwikilink.onion",
+      "keywords": ["wiki", "art", "gallery", "onion"]
+  },
+  {
+      "title": "Programming Wiki",
+      "description": "A go-to resource for programmers. The wiki offers tutorials, coding tips, best practices, and resources for developers of all skill levels, covering everything from web development to software engineering.",
+      "url": "http://programmingwikilink.onion",
+      "keywords": ["wiki", "programming", "coding", "onion"]
+  },
+  {
+      "title": "Health Wiki",
+      "description": "A comprehensive resource for health-related information. This wiki includes tips on wellness, mental health, medical conditions, and fitness, helping individuals make informed decisions about their health.",
+      "url": "http://healthwikilink.onion",
+      "keywords": ["wiki", "health", "medical", "onion"]
+  },
+  {
+      "title": "Cooking Wiki",
+      "description": "A collection of recipes, cooking techniques, and food-related resources. Perfect for both beginner and experienced chefs, this wiki offers everything from basic meal preparation to gourmet cooking tips.",
+      "url": "http://cookingwikilink.onion",
+      "keywords": ["wiki", "cooking", "recipes", "onion"]
+  },
+  {
+      "title": "Gaming Wiki",
+      "description": "A resource for gamers, offering walkthroughs, game reviews, cheat codes, and tips for a variety of gaming platforms. Whether you're into PC gaming or console games, this wiki provides all the info you need.",
+      "url": "http://gamingwikilink.onion",
+      "keywords": ["wiki", "gaming", "guides", "onion"]
+  },
+  {
+      "title": "Education Wiki",
+      "description": "A hub for educators and students, providing resources such as lesson plans, teaching tools, and educational materials. This wiki also covers various educational philosophies and methodologies.",
+      "url": "http://educationwikilink.onion",
+      "keywords": ["wiki", "education", "resources", "onion"]
+  },
+  {
+      "title": "Movies Wiki",
+      "description": "An extensive movie database including film reviews, ratings, and trailers. Movie buffs can explore the latest releases, classic films, and everything in between, as well as delve into discussions on directors, genres, and actors.",
+      "url": "http://movieswikilink.onion",
+      "keywords": ["wiki", "movies", "reviews", "onion"]
+  },
+  {
+      "title": "Music Wiki",
+      "description": "A comprehensive wiki dedicated to music theory, album reviews, and artist information. Whether you're a musician or a music enthusiast, this wiki provides detailed articles on genres, instruments, and music history.",
+      "url": "http://musicwikilink.onion",
+      "keywords": ["wiki", "music", "albums", "onion"]
+  },
+  {
+      "title": "Hacking Wiki",
+      "description": "A valuable resource for those interested in ethical hacking and cybersecurity. This wiki includes guides on penetration testing, tools for hacking, and tutorials on securing your systems from cyber threats.",
+      "url": "http://hackingwikilink.onion",
+      "keywords": ["wiki", "hacking", "cyber", "onion"]
+  },
+  {
+      "title": "Travel Wiki",
+      "description": "A resource for travelers, providing destination guides, tips on travel planning, and reviews of various locations around the world. Whether you're backpacking or looking for luxury travel advice, this wiki has something for everyone.",
+      "url": "http://travelwikilink.onion",
+      "keywords": ["wiki", "travel", "guides", "onion"]
+  }
+]

@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #000000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: filter 0.3s ease-in-out;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #a064fc;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.6;
+  animation: moveBall 6s infinite;
+}
+
+@keyframes moveBall {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(300px, 100px); }
+  50% { transform: translate(500px, -200px); }
+  75% { transform: translate(-200px, 300px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 768px) {
+  .ball {
+      width: 150px;
+      height: 150px;
+      animation-duration: 8s;
+  }
+
+  .ball:nth-child(1) { top: 10%; left: 15%; animation-duration: 8s; }
+  .ball:nth-child(2) { top: 40%; left: 40%; animation-duration: 6s; }
+  .ball:nth-child(3) { top: 70%; left: 50%; animation-duration: 7s; }
+  .ball:nth-child(4) { top: 20%; left: 70%; animation-duration: 5s; }
+  .ball:nth-child(5) { top: 60%; left: 30%; animation-duration: 9s; }
+}
+
+.search-container {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  position: relative;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: none;
+  background-color: #f6f6f6;
+  color: #000000;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  border-radius: 20px;
+}
+
+input[type="submit"] {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #313131;
+}
+
+.results {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.result {
+  margin-bottom: 26px;
+  border-top: 1px solid #373737;
+  padding: 10px;
+}
+
+.result h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.result p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.result a {
+  color: #7284ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.result a:hover {
+  text-decoration: underline;
+}
+
+.result .url {
+  margin-top: 10px;
+  color: #c5c5c5;
+  font-size: 1rem;
+}
+
+.update-message, .donation-message {
+  font-size: 1.1rem;
+  color: #999;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.donation-message a {
+  color: #a064fc;
+  text-decoration: none;
+  font-weight: bold;
+}

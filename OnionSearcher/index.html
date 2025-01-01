@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="System/UI/Style/UI.css">
+    <link rel="stylesheet" href="System/UI/Style/Style.css">
+    <title>Onion Searcher</title>
+</head>
+<body>
+    <div class="background">
+        <div class="ball" style="top: 10%; left: 20%; animation-duration: 8s;"></div>
+        <div class="ball" style="top: 50%; left: 40%; animation-duration: 6s;"></div>
+        <div class="ball" style="top: 80%; left: 60%; animation-duration: 7s;"></div>
+        <div class="ball" style="top: 30%; left: 70%; animation-duration: 5s;"></div>
+        <div class="ball" style="top: 70%; left: 30%; animation-duration: 9s;"></div>
+    </div>
+
+    <div class="search-container">
+    <div class="logo">
+    <a href="/">
+        <img src="/logo.png" alt="Logo">
+        <div class="logo-text">Onion Search</div>
+    </a>
+</div>
+        <form class="search-form" id="searchForm">
+            <input type="text" id="query" placeholder="Enter search query..." autocomplete="off" required>
+            <input type="submit" value="Search">
+        </form>
+        <div class="results" id="results"></div>
+    </div>
+
+    <div class="update-message">
+        We update the list of sites every day!
+    </div>
+
+    <div class="donation-message">
+        Donations welcome: <a href="https://t.me/Cloudverge" target="_blank">Support Us on Telegram</a>
+    </div>
+    <script src="System/Search/Search.js" defer></script>
+</body>
+</html>
