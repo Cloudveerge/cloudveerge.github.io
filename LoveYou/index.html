@@ -39,10 +39,10 @@
         audioElement.id = 'audio';
         audioElement.style.display = 'none';
         document.body.appendChild(audioElement);
-
+    
         const hoaAudio = document.getElementById('audio');
-        hoaAudio.src = 'Sarah (Bonus Track) - Alex G.m4a';  
-
+        hoaAudio.src = 'Sarah (Bonus Track) - Alex G.m4a';
+    
         const lyrics = [
             "Сара бежит, чтобы почувствовать жжение в лёгких",
             "И освежить голову.",
@@ -70,32 +70,31 @@
             "Я сомневаюсь в игре, которую затеял. (Ду-ду)",
             "Совершил ли я ошибку?"
         ];
-
+    
         let lineIndex = 0;
         let countdown = 33;
-
+    
         const countdownElement = document.querySelector('.countdown');
-
+    
         function updateCountdown() {
             if (countdown > 0) {
-                countdownElement.innerText = 00:${countdown < 10 ? '0' + countdown : countdown};
+                countdownElement.innerText = `00:${countdown < 10 ? '0' + countdown : countdown}`;
                 countdown--;
                 setTimeout(updateCountdown, 1000);
             } else {
                 hoaAudio.play();
-                setTimeout(displayLyrics, 500);
             }
         }
-
+    
         function displayLyrics() {
             if (lineIndex < lyrics.length) {
                 const lyricsContainer = document.querySelector('.song-lyrics');
-                lyricsContainer.innerHTML += <p>${lyrics[lineIndex]}</p>;
+                lyricsContainer.innerHTML += `<p>${lyrics[lineIndex]}</p>`;
                 lineIndex++;
                 setTimeout(displayLyrics, 5000);
             }
         }
-
+    
         function toggleSound() {
             if (isMuted) {
                 hoaAudio.play();
@@ -110,6 +109,13 @@
                 document.querySelector('.sound-button i').classList.add('fa-volume-mute');
             }
         }
+    
+        hoaAudio.addEventListener('canplay', () => {
+            if (!isMuted) {
+                setTimeout(displayLyrics, 500);
+            }
+        });
     </script>
+    
 </body>
-</html>  
+</html>
