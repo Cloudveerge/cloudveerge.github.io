@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For @beli_838547</title>
+    <link rel="stylesheet" href="/System/UI/Style/UI.css">
+    <link rel="stylesheet" href="/System/UI/Style/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <h1>For <a href="https://t.me/beli_838547" target="_blank">@beli_838547</a></h1>
+        <p>I can't understand how I got so lucky to find you, but I am grateful every day. You are the only one who is truly important to me. I love you not just with words, but with all my soul. I want to be there for you, take care of you, and protect you.</p>
+        <p>You are incredible and I am happy to be able to tell you that.</p>
+        <div class="heart">&hearts;</div>
+        <div class="signature">With love, your beloved</div>
+    </div>
+
+    <div class="post">
+        <div class="post-date">01.01.2025</div>
+        <p>Today I thought again about how amazing you are. Every moment spent with you remains in my heart forever.</p>
+    </div>
+
+    <footer>
+        We started dating: Tuesday, December 24, 2024 1:32 AM
+    </footer>
+
+    <button class="sound-button" onclick="toggleSound()">
+        <i class="fas fa-volume-mute"></i> 
+    </button>
+
+    <div class="countdown">00:33</div>
+    <div class="song-lyrics"></div>
+
+    <script>
+        let isMuted = true;
+        const audioElement = document.createElement('audio');
+        audioElement.id = 'audio';
+        audioElement.style.display = 'none';
+        document.body.appendChild(audioElement);
+
+        const hoaAudio = document.getElementById('audio');
+        hoaAudio.src = '/Sarah (Bonus Track) - Alex G.m4a';  
+
+        const lyrics = [
+            "Сара бежит, чтобы почувствовать жжение в лёгких",
+            "И освежить голову.",
+            "Знаешь ли ты, что Сара имела в виду,",
+            "Когда сказала: «Будь моим гостем»?",
+            "И не сбавляй темп, чтобы не ударить в грязь лицом.",
+            "Ты никогда не займешь место,",
+            "Так почему ты вообще участвуешь в гонке?",
+            "Я не могу быть тем, в чём ты нуждаешься,",
+            "Я застрял во сне,",
+            "Я застрял во сне.",
+            "Разве ты не знаешь,",
+            "Что все это время она была во сне?",
+            "Она принадлежит Миру грёз.",
+            "Каждый день я даю обещания, которые терзают сердце Сары,",
+            "Чтобы наблюдать, как она расстраивается,",
+            "Потому что я знаю, когда я её сломаю,",
+            "Мы наплюём на всех счастливых клоунов,",
+            "Которые живут в этом солнечном городке.",
+            "Она любит меня как собака, (Ду-ду)",
+            "И когда мы будем валять дурака, (Ду-ду)",
+            "Я дам ей знать о правде, которую нашел (Ду-ду, Ду-ду)",
+            "В своей же беспросветной ненависти. (Ду-ду)",
+            "И каждый раз, когда я просыпаюсь, (Ду-ду)",
+            "Я сомневаюсь в игре, которую затеял. (Ду-ду)",
+            "Совершил ли я ошибку?"
+        ];
+
+        let lineIndex = 0;
+        let countdown = 33;
+
+        const countdownElement = document.querySelector('.countdown');
+
+        function updateCountdown() {
+            if (countdown > 0) {
+                countdownElement.innerText = `00:${countdown < 10 ? '0' + countdown : countdown}`;
+                countdown--;
+                setTimeout(updateCountdown, 1000);
+            } else {
+                hoaAudio.play();
+                setTimeout(displayLyrics, 500);
+            }
+        }
+
+        function displayLyrics() {
+            if (lineIndex < lyrics.length) {
+                const lyricsContainer = document.querySelector('.song-lyrics');
+                lyricsContainer.innerHTML += `<p>${lyrics[lineIndex]}</p>`;
+                lineIndex++;
+                setTimeout(displayLyrics, 5000);
+            }
+        }
+
+        function toggleSound() {
+            if (isMuted) {
+                hoaAudio.play();
+                isMuted = false;
+                document.querySelector('.sound-button i').classList.remove('fa-volume-mute');
+                document.querySelector('.sound-button i').classList.add('fa-volume-up');
+                updateCountdown();
+            } else {
+                hoaAudio.pause();
+                isMuted = true;
+                document.querySelector('.sound-button i').classList.remove('fa-volume-up');
+                document.querySelector('.sound-button i').classList.add('fa-volume-mute');
+            }
+        }
+    </script>
+</body>
+</html>

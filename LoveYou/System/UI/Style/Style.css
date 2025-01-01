@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 2s ease-out;
+  position: relative;
+}
+
+::selection {
+  background: #8A2BE2; 
+  color: #ffffff;
+}
+
+.card {
+  text-align: center;
+  padding: 15px;
+  max-width: 400px;
+  opacity: 0;
+  animation: fadeInCard 1.5s forwards;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: #bb86fc;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 0.9em;
+  margin: 10px 0;
+  line-height: 1.4;
+  color: #e0e0e0;
+}
+
+.heart {
+  font-size: 2.2em;
+  color: #ff4081;
+  animation: heartbeat 1.5s infinite;
+}
+
+.signature {
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: #bb86fc;
+}
+
+.post {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInPost 2s forwards;
+}
+
+.post-date {
+  font-size: 0.8em;
+  color: #bb86fc;
+  margin-bottom: 10px;
+}
+
+.countdown {
+  font-size: 1.5em;
+  color: #ff4081;
+  margin-top: 30px;
+  animation: countdownAnimation 1s infinite;
+}
+
+@media (min-width: 1024px) {
+  body {
+      padding: 40px;
+  }
+
+  .card {
+      padding: 20px;
+  }
+
+  h1 {
+      font-size: 2.2em;
+  }
+
+  p {
+      font-size: 1.1em;
+  }
+
+  .heart {
+      font-size: 3em;
+  }
+
+  .signature {
+      font-size: 1em;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInCard {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInPost {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes countdownAnimation {
+  0% { color: #ff4081; }
+  100% { color: #bb86fc; }
+}
+
+a {
+  color: #bb86fc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  color: #a0a0a0;
+  font-size: 0.9em;
+}
+
+.sound-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #bb86fc;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.sound-button:hover {
+  background-color: #9b6dff;
+}
+
+.sound-button:focus {
+  outline: none;
+}
+
+.sound-button i {
+  font-size: 1em;
+}
+
+.song-lyrics {
+  font-size: 1em;
+  color: #e0e0e0;
+  margin-top: 10px;
+}
