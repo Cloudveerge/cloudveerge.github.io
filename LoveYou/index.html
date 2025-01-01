@@ -31,18 +31,15 @@
     </button>
 
     <div class="countdown">00:33</div>
+    <div class="progress">Загрузка: 0%</div>
     <div class="song-lyrics"></div>
 
     <script>
         let isMuted = true;
-        const audioElement = document.createElement('audio');
-        audioElement.id = 'audio';
-        audioElement.style.display = 'none';
-        document.body.appendChild(audioElement);
-    
-        const hoaAudio = document.getElementById('audio');
-        hoaAudio.src = 'Sarah (Bonus Track) - Alex G.m4a';
-    
+        let isReady = false;
+        const hoaAudio = new Audio('Sarah (Bonus Track) - Alex G.m4a');
+        hoaAudio.preload = 'auto';
+
         const lyrics = [
             "Сара бежит, чтобы почувствовать жжение в лёгких",
             "И освежить голову.",
@@ -70,32 +67,64 @@
             "Я сомневаюсь в игре, которую затеял. (Ду-ду)",
             "Совершил ли я ошибку?"
         ];
-    
+
         let lineIndex = 0;
-        let countdown = 33;
-    
         const countdownElement = document.querySelector('.countdown');
-    
-        function updateCountdown() {
-            if (countdown > 0) {
-                countdownElement.innerText = `00:${countdown < 10 ? '0' + countdown : countdown}`;
-                countdown--;
-                setTimeout(updateCountdown, 1000);
+        const progressElement = document.querySelector('.progress');
+        const lyricsContainer = document.querySelector('.song-lyrics');
+
+        let countdown = 33;
+
+        function updateProgress() {
+            if (hoaAudio.buffered.length > 0) {
+                const bufferedEnd = hoaAudio.buffered.end(0);
+                const duration = hoaAudio.duration;
+                const percent = Math.min((bufferedEnd / duration) * 100, 100);
+                progressElement.innerText = `Загрузка: ${Math.round(percent)}%`;
+                if (percent === 100 && !isReady) {
+                    isReady = true;
+                    progressElement.innerText = 'Загрузка завершена';
+                }
             } else {
-                hoaAudio.play();
+                progressElement.innerText = 'Загрузка: 0%';
             }
         }
-    
+
         function displayLyrics() {
             if (lineIndex < lyrics.length) {
-                const lyricsContainer = document.querySelector('.song-lyrics');
-                lyricsContainer.innerHTML += `<p>${lyrics[lineIndex]}</p>`;
+                const line = lyrics[lineIndex];
+                lyricsContainer.innerHTML += `<p>${line}</p>`;
                 lineIndex++;
-                setTimeout(displayLyrics, 5000);
             }
         }
-    
+
+        function updateCountdown() {
+            const tick = () => {
+                if (countdown > 0) {
+                    countdownElement.innerText = `00:${countdown < 10 ? '0' + countdown : countdown}`;
+                    countdown--;
+                    setTimeout(tick, 1000);
+                } else {
+                    countdownElement.innerText = "00:00";
+                    hoaAudio.play();
+                    startDisplayingLyrics();
+                }
+            };
+            tick();
+        }
+
+        function startDisplayingLyrics() {
+            let lyricDelay = 500;
+            lyrics.forEach((line, index) => {
+                setTimeout(() => {
+                    lyricsContainer.innerHTML += `<p>${line}</p>`;
+                }, lyricDelay);
+                lyricDelay += 5000;
+            });
+        }
+
         function toggleSound() {
+            if (!isReady) return;
             if (isMuted) {
                 hoaAudio.play();
                 isMuted = false;
@@ -109,13 +138,12 @@
                 document.querySelector('.sound-button i').classList.add('fa-volume-mute');
             }
         }
-    
-        hoaAudio.addEventListener('canplay', () => {
-            if (!isMuted) {
-                setTimeout(displayLyrics, 500);
-            }
+
+        hoaAudio.addEventListener('progress', updateProgress);
+        hoaAudio.addEventListener('canplaythrough', () => {
+            isReady = true;
+            progressElement.innerText = 'Загрузка завершена';
         });
     </script>
-    
 </body>
 </html>
