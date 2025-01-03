@@ -173,41 +173,32 @@
         updateTimer();
 
         const audioElement = document.createElement('audio');
-        audioElement.id = 'audio';
-        audioElement.style.display = 'none';
-        document.body.appendChild(audioElement);
+    audioElement.id = 'audio';
+    audioElement.style.display = 'none';
+    audioElement.src = 'sportsbeachbunny.mp3';
+    document.body.appendChild(audioElement);
 
-        (function () {
-            const hoaAudio = document.getElementById('audio');
-            const profilesWithMusic = {
-                '/RelationshipTimer': 'sportsbeachbunny.mp3'
+    (function () {
+        function catchHandler() {
+            let inputListener;
+            inputListener = function () {
+                audioElement.play();
+                document.removeEventListener('mousedown', inputListener);
+                document.removeEventListener('keydown', inputListener);
             };
-            const currentPath = window.location.pathname;
 
-            if (profilesWithMusic.hasOwnProperty(currentPath)) {
-                hoaAudio.src = profilesWithMusic[currentPath];
+            document.addEventListener('mousedown', inputListener);
+            document.addEventListener('keydown', inputListener);
+        }
 
-                function catchHandler() {
-                    let inputListener;
-                    inputListener = function () {
-                        hoaAudio.play();
-                        document.removeEventListener('mousedown', inputListener);
-                        document.removeEventListener('keydown', inputListener);
-                    };
-
-                    document.addEventListener('mousedown', inputListener);
-                    document.addEventListener('keydown', inputListener);
-                }
-
-                if (hoaAudio.readyState > 1) {
-                    hoaAudio.play().catch(catchHandler);
-                } else {
-                    hoaAudio.addEventListener('canplay', function () {
-                        hoaAudio.play().catch(catchHandler);
-                    });
-                }
-            }
-        })();
+        if (audioElement.readyState > 1) {
+            audioElement.play().catch(catchHandler);
+        } else {
+            audioElement.addEventListener('canplay', function () {
+                audioElement.play().catch(catchHandler);
+            });
+        }
+    })();
     </script>
 </body>
 </html>
