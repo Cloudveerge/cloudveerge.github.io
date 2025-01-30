@@ -12,7 +12,6 @@
             box-sizing: border-box;
         }
         body {
-            margin: 0;
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #ffe4e1, #faded2);
             color: #4b4b4b;
@@ -27,53 +26,31 @@
             animation: fadeIn 2s ease-in-out;
             width: 90%;
         }
-        .icon-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
         .icon {
             width: 230px;
         }
-        .icon-wrapper::before, .icon-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 15px;
-            background: linear-gradient(to right, rgb(252 224 216), rgba(255, 255, 255, 0));
-            z-index: 1;
-        }
-        .icon-wrapper::before {
-            left: 0;
-        }
-        .icon-wrapper::after {
-            right: 0;
-            transform: scaleX(-1);
-        }
         h1 {
             font-size: 1.8rem;
-            margin-bottom: 0.5rem;
             color: #5a5a5a;
         }
         p {
             font-size: 1.1rem;
-            margin: 0.5rem 0;
             color: #5a5a5a;
-        }
-        a {
-            color: #5a5a5a;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
         }
         .timer {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: bold;
             margin-top: 1rem;
-            color: #5a5a5a;
+            color: red;
+            animation: blink 1s infinite alternate;
+        }
+        @keyframes blink {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.3;
+            }
         }
         @keyframes fadeIn {
             from {
@@ -83,57 +60,11 @@
                 opacity: 1;
             }
         }
-        .card {
-            position: relative;
-            width: 200px;
-            height: 250px;
-            perspective: 1000px;
-            margin: 20px auto;
-        }
-        .card-inner {
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-        .card:hover .card-inner, .card:focus .card-inner {
-            transform: rotateY(180deg);
-        }
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 23px;
-            overflow: hidden;
-        }
-        .card-front {
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .card-back {
-            background: #f0f0f0;
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        .card-back img {
-            max-width: 80%;
-            border-radius: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="icon-wrapper">
-            <img class="icon" src="https://user-images.githubusercontent.com/15802862/220481971-ce7feeef-d5a3-4916-b8c3-feaf094e489f.png" alt="Icon">
-        </div>
+        <img class="icon" src="https://user-images.githubusercontent.com/15802862/220481971-ce7feeef-d5a3-4916-b8c3-feaf094e489f.png" alt="Icon">
         <h1>We started dating</h1>
         <p>Tuesday, December 24, 2024 1:32 AM</p>
         <p class="timer" id="timer">Calculating...</p>
@@ -141,25 +72,21 @@
             <a href="https://t.me/sys51" target="_blank">@sys51</a> |
             <a href="https://t.me/beli_838547" target="_blank">@beli_838547</a>
         </p>
-
-        <div class="card" tabindex="0">
-            <div class="card-inner">
-                <div class="card-front">
-                    <p>Hover or click me!</p>
-                </div>
-                <div class="card-back">
-                    <p>I love you :)</p>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-uJ0EJW5Ck5X2ZsuJzeZ1UOt5GApc5MTvMg&s" alt="Cute cat gif">
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
-        const startDate = new Date('December 24, 2024 01:32:00');
+        const stopDate = new Date('January 31, 2025 00:00:00').getTime();
+        const timerElement = document.getElementById('timer');
 
         function updateTimer() {
-            const now = new Date();
+            const now = new Date().getTime();
+
+            if (now >= stopDate) {
+                timerElement.textContent = "Timer stopped 😢";
+                return;
+            }
+
+            const startDate = new Date('December 24, 2024 01:32:00');
             const diff = now - startDate;
 
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -167,39 +94,11 @@
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
 
-            document.getElementById('timer').textContent = `Together for: ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+            timerElement.textContent = `Together for: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds.`;
         }
 
         setInterval(updateTimer, 1000);
         updateTimer();
-
-        const audioElement = document.createElement('audio');
-    audioElement.id = 'audio';
-    audioElement.style.display = 'none';
-    audioElement.src = 'sportsbeachbunny.mp3';
-    document.body.appendChild(audioElement);
-
-    (function () {
-        function catchHandler() {
-            let inputListener;
-            inputListener = function () {
-                audioElement.play();
-                document.removeEventListener('mousedown', inputListener);
-                document.removeEventListener('keydown', inputListener);
-            };
-
-            document.addEventListener('mousedown', inputListener);
-            document.addEventListener('keydown', inputListener);
-        }
-
-        if (audioElement.readyState > 1) {
-            audioElement.play().catch(catchHandler);
-        } else {
-            audioElement.addEventListener('canplay', function () {
-                audioElement.play().catch(catchHandler);
-            });
-        }
-    })();
     </script>
 </body>
 </html>
